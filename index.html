@@ -42,41 +42,11 @@
       }
     </script>
 
-    <!-- QR Code seguro (sin bloqueos de privacidad) -->
-    <script src="https://unpkg.com/qrcode@1.5.4/build/qrcode.min.js" 
-            crossorigin="anonymous" 
-            integrity="sha384-9c2i2Zc8PZb8t2m9z7Xq2l9XbG5z5u6F6x5Y5v6Z6a7B8C9D1E2F3G4H5I6J7K8L9"
-            defer></script>
+
 
     <style>
       :root { --glass: rgba(255,255,255,0.09); --glass-border: rgba(255,255,255,0.18); }
       .glass { background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 1.5rem; }
-      
-      /* Crypto cards perfectas */
-      .crypto-card { perspective: 1200px; }
-      .crypto-inner {
-        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        background: rgba(255,255,255,0.08);
-        backdrop-filter: blur(20px);
-        border-radius: 2.5rem;
-        padding: 2rem 1.5rem;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-        min-height: 360px;
-      }
-      .crypto-card:hover .crypto-inner {
-        transform: translateZ(70px) rotateX(10deg) rotateY(-6deg);
-        box-shadow: 0 50px 100px rgba(0,0,0,0.7);
-      }
-      .crypto-inner canvas {
-        border-radius: 1rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-        image-rendering: pixelated;
-      }
       .focus-ring:focus-visible { outline: 3px solid #06b6d4; outline-offset: 4px; }
       .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
       .scrollbar-hide::-webkit-scrollbar { display: none; }
@@ -193,7 +163,6 @@
           <!-- ETH -->
           <div class="group crypto-card" data-chain="ethereum" data-address="0xeA6EDc8A737841f569af0A2D96B5ed5f3d61296E">
             <div class="crypto-inner">
-              <canvas id="qr-eth" width="180" height="180" class="mx-auto"></canvas>
               <div class="mt-6 text-center w-full">
                 <div class="text-2xl font-black text-cyan-400 mb-2">ETH</div>
                 <button class="copy-btn font-mono text-xs md:text-sm break-all bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition focus-ring w-full leading-tight">
@@ -206,7 +175,6 @@
           <!-- BTC -->
           <div class="group crypto-card" data-chain="bitcoin" data-address="bc1qhuqhpvn0fq7xkvr0j9rwzw5w2q4mnagkkqq3dp">
             <div class="crypto-inner">
-              <canvas id="qr-btc" width="180" height="180" class="mx-auto"></canvas>
               <div class="mt-6 text-center w-full">
                 <div class="text-2xl font-black text-orange-400 mb-2">BTC</div>
                 <button class="copy-btn font-mono text-xs md:text-sm break-all bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition focus-ring w-full leading-tight">
@@ -219,7 +187,6 @@
           <!-- SOL -->
           <div class="group crypto-card" data-chain="solana" data-address="2aC2jXeM31ePrPHL5mfGFCGMINs4BsNkpQNSaTy6ARhpB">
             <div class="crypto-inner">
-              <canvas id="qr-sol" width="180" height="180" class="mx-auto"></canvas>
               <div class="mt-6 text-center w-full">
                 <div class="text-2xl font-black text-purple-400 mb-2">SOL</div>
                 <button class="copy-btn font-mono text-xs md:text-sm break-all bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition focus-ring w-full leading-tight">
@@ -233,7 +200,6 @@
           <!-- XRP -->
           <div class="group crypto-card" data-chain="ripple" data-address="rFXyJhLo2X2Eo6r7jcJiKBEu3qu8VZA7G3">
             <div class="crypto-inner">
-              <canvas id="qr-xrp" width="180" height="180" class="mx-auto"></canvas>
               <div class="mt-6 text-center w-full">
                 <div class="text-2xl font-black text-gray-300 mb-2">XRP</div>
                 <button class="copy-btn font-mono text-xs md:text-sm break-all bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition focus-ring w-full leading-tight">
@@ -247,7 +213,6 @@
           <!-- XLM -->
           <div class="group crypto-card" data-chain="stellar" data-address="GBGPRL64Z4VQZQOQHPRM3WTO7KJNZ5YEYNMDZBAWCZ7WV4BQRE3UMI">
             <div class="crypto-inner">
-              <canvas id="qr-xlm" width="180" height="180" class="mx-auto"></canvas>
               <div class="mt-6 text-center w-full">
                 <div class="text-2xl font-black text-red-400 mb-2">XLM</div>
                 <button class="copy-btn font-mono text-xs md:text-sm break-all bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition focus-ring w-full leading-tight">
@@ -279,6 +244,7 @@
     Actualizado noviembre 2025 – Tasa BCV: 243,1105 Bs. = 1 USD
   </footer>
 
+  </body>
   <!-- Traducciones completas y lógica perfecta -->
   <script>
     const translations = {
@@ -475,28 +441,10 @@
       });
     }
 
-    function generateQRCodes() {
-      if (typeof QRCode === "undefined") return setTimeout(generateQRCodes, 100);
-      document.querySelectorAll('.crypto-card').forEach(card => {
-        const address = card.dataset.address;
-        const chain = card.dataset.chain;
-        const canvas = card.querySelector('canvas');
-        let data = address;
-        if (chain === "ethereum") data = `ethereum:${address}`;
-        if (chain === "bitcoin") data = `bitcoin:${address}`;
-        if (chain === "solana") data = `solana:${address}`;
-        QRCode.toCanvas(canvas, data, {
-          width: 180,
-          margin: 2,
-          color: { dark: "#ffffff", light: "#00000000" },
-          errorCorrectionLevel: "H"
-        });
-      });
-    }
+
 
     document.addEventListener("DOMContentLoaded", () => {
       applyLanguage(localStorage.getItem("lang") || "es");
-      generateQRCodes();
 
       document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
@@ -517,5 +465,5 @@
       });
     });
   </script>
-</body>
+</html>
 </html>
