@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="title">Ayúdame con los medicamentos de mi abuela de 92 años mensuales | Venezuela 2025</title>
-    <meta name="description" data-i18n="description">Costo mensual de 8 medicamentos esenciales: Bs. 15.471,00 (≈ $63,66 USD al cambio oficial BCV).">
+    <meta name="description" id="meta-description" content="">
+    <script>
+    function setLang(lang) {
+        document.getElementById("meta-description")
+                .setAttribute("content", translations[lang].description);
+    }
+        
+    const savedLang = localStorage.getItem("lang") || "es";
+    setLang(savedLang);
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
