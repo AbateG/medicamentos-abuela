@@ -4,39 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="title">Ayúdame con los medicamentos de mi abuela de 92 años mensuales | Venezuela 2025</title>
+    <!-- Fixed: dynamic meta description (no more visible text bug) -->
     <meta name="description" id="meta-description" content="">
-    <script>
-    function setLang(lang) {
-        document.getElementById("meta-description")
-                .setAttribute("content", translations[lang].description);
-    }
-        
-    const savedLang = localStorage.getItem("lang") || "es";
-    setLang(savedLang);
-    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }, animation: { 'fade-in': 'fadeIn 0.8s ease-out forwards', 'slide-up': 'slideUp 0.7s ease-out forwards' } } } }
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                    animation: { 'fade-in': 'fadeIn 0.8s ease-out forwards', 'slide-up': 'slideUp 0.7s ease-out forwards' }
+                } 
+            } 
+        }
     </script>
     <style>
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); }
-        [data-i18n] { transition: opacity 0.2s; }
     </style>
 </head>
 
 <body class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
-    <!-- Language Switcher (top-right) -->
+    <!-- Language Switcher -->
     <div class="fixed top-4 right-4 z-50 flex gap-2 bg-black bg-opacity-60 backdrop-blur rounded-full p-2 shadow-xl">
-        <button onclick="setLang('es')" class="lang-btn px-3 py-1.5 rounded-full text-sm font-medium" data-lang="es">ES</button>
-        <button onclick="setLang('en')" class="lang-btn px-3 py-1.5 rounded-full text-sm font-medium" data-lang="en">EN</button>
-        <button onclick="setLang('de')" class="lang-btn px-3 py-1.5 rounded-full text-sm font-medium" data-lang="de">DE</button>
-        <button onclick="setLang('it')" class="lang-btn px-3 py-1.5 rounded-full text-sm font-medium" data-lang="it">IT</button>
+        <button onclick="setLang('es')" class="lang-btn px-4 py-2 rounded-full text-sm font-bold transition" data-lang="es">ES</button>
+        <button onclick="setLang('en')" class="lang-btn px-4 py-2 rounded-full text-sm font-bold transition" data-lang="en">EN</button>
+        <button onclick="setLang('de')" class="lang-btn px-4 py-2 rounded-full text-sm font-bold transition" data-lang="de">DE</button>
+        <button onclick="setLang('it')" class="lang-btn px-4 py-2 rounded-full text-sm font-bold transition" data-lang="it">IT</button>
     </div>
 
     <!-- Hero -->
@@ -80,8 +78,8 @@
                                 <th class="px-6 py-5 text-lg font-semibold text-center" data-i18n="th_link">Ver en Farmatodo</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-700" id="medicines-table">
-                            <!-- Rows are injected by JS (see translations below) -->
+                        <tbody id="medicines-table" class="divide-y divide-gray-700">
+                            <!-- Filled dynamically by JavaScript -->
                         </tbody>
                     </table>
                 </div>
@@ -89,7 +87,7 @@
         </div>
     </section>
 
-    <!-- Donation -->
+    <!-- Donation Section -->
     <section class="py-20 px-6 bg-black bg-opacity-50">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-8" data-i18n="donation_title">¿Cómo puedes ayudarme?</h2>
@@ -135,7 +133,7 @@
         Actualizado noviembre 2025 – Tasa BCV: 243,1105 Bs. = 1 USD
     </footer>
 
-    <!-- Translations + Logic -->
+    <!-- Translations & Logic -->
     <script>
         const translations = {
             es: {
@@ -147,133 +145,90 @@
                 total_usd: "$63,66 USD",
                 exchange_rate: "Tasa BCV: Bs. 243,1105 = 1 USD",
                 table_title: "Detalle completo de medicamentos (receta mensual)",
-                th_medicine: "Medicamento",
-                th_presentation: "Presentación",
-                th_price_bs: "Precio en Bs.",
-                th_price_usd: "Precio en USD",
-                th_link: "Ver en Farmatodo",
+                th_medicine: "Medicamento", th_presentation: "Presentación", th_price_bs: "Precio en Bs.", th_price_usd: "Precio en USD", th_link: "Ver en Farmatodo",
                 donation_title: "¿Cómo puedes ayudarme?",
                 donation_text: "Cualquier aporte, aunque sea $5 o $10 dólares, me permite seguir comprando estos medicamentos sin interrupciones.",
-                donate_bs: "Bolívares",
-                fastest: "MÁS RÁPIDO",
+                donate_bs: "Bolívares", fastest: "MÁS RÁPIDO",
                 donate_button: "DONAR AHORA (Revolut, Paypal o Bs.) ❤️",
                 thanks: "Gracias de corazón. Cada dólar o bolívar cuenta mucho.",
                 footer: "Actualizado noviembre 2025 – Tasa BCV: 243,1105 Bs. = 1 USD",
-
+                total_row: "TOTAL MENSUAL",
                 medicines: [
-                    { name: "Duloxetina 60 mg", pres: "Duloxuni Unipharma – 30 cáps.", bs: "3.276,75", usd: "$13,48" },
-                    { name: "Clonazepam 0,5 mg", pres: "Clonzep Valmor – 30 tabl.", bs: "1.710,00", usd: "$7,03" },
-                    { name: "Rosuvastatina 10 mg", pres: "La Santé – 30 tabl.", bs: "2.197,25", usd: "$9,04" },
-                    { name: "Quetiapina 100 mg", pres: "Letalop SNC – 30 comp.", bs: "2.337,50", usd: "$9,62" },
-                    { name: "Candesartán 16 mg", pres: "Candetip FC – 30 comp.", bs: "1.683,00", usd: "$6,92" },
-                    { name: "Metformina 500 mg", pres: "Plusandex – 30 tabl.", bs: "773,50", usd: "$3,18" },
-                    { name: "Bisoprolol 2,5 mg", pres: "Corentel Megalabs – 30 comp.", bs: "1.113,00", usd: "$4,58" },
-                    { name: "Glimepirida 4 mg", pres: "Genven – 30 comp.", bs: "2.380,00", usd: "$9,79" }
+                    {name:"Duloxetina 60 mg",pres:"Duloxuni Unipharma – 30 cáps.",bs:"3.276,75",usd:"$13,48"},
+                    {name:"Clonazepam 0,5 mg",pres:"Clonzep Valmor – 30 tabl.",bs:"1.710,00",usd:"$7,03"},
+                    {name:"Rosuvastatina 10 mg",pres:"La Santé – 30 tabl.",bs:"2.197,25",usd:"$9,04"},
+                    {name:"Quetiapina 100 mg",pres:"Letalop SNC – 30 comp.",bs:"2.337,50",usd:"$9,62"},
+                    {name:"Candesartán 16 mg",pres:"Candetip FC – 30 comp.",bs:"1.683,00",usd:"$6,92"},
+                    {name:"Metformina 500 mg",pres:"Plusandex – 30 tabl.",bs:"773,50",usd:"$3,18"},
+                    {name:"Bisoprolol 2,5 mg",pres:"Corentel Megalabs – 30 comp.",bs:"1.113,00",usd:"$4,58"},
+                    {name:"Glimepirida 4 mg",pres:"Genven – 30 comp.",bs:"2.380,00",usd:"$9,79"}
                 ]
             },
-
-            en: {
-                title: "Help me with my 92-year-old grandmother’s monthly medicines | Venezuela 2025",
+            en: { title: "Help me with my 92-year-old grandmother’s monthly medicines | Venezuela 2025",
                 description: "Monthly cost of 8 essential medicines: Bs. 15.471,00 (≈ $63.66 USD at official BCV rate).",
                 hero_title: "I need your help with my 92-year-old grandmother’s <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">monthly medicines</span>",
-                hero_subtitle: "In Venezuela these 8 treatments cost every month:",
-                total_bs: "Bs. 15.471,00",
-                total_usd: "$63.66 USD",
-                exchange_rate: "BCV rate: Bs. 243,1105 = 1 USD",
-                table_title: "Full list of medicines (monthly prescription)",
-                th_medicine: "Medicine",
-                th_presentation: "Presentation",
-                th_price_bs: "Price (Bs.)",
-                th_price_usd: "Price (USD)",
-                th_link: "View on Farmatodo",
-                donation_title: "How can you help me?",
-                donation_text: "Any donation, even $5 or $10, allows me to keep buying these medicines without interruption.",
-                donate_bs: "Bolívares",
-                fastest: "FASTEST",
-                donate_button: "DONATE NOW (Revolut, PayPal or Bs.) ❤️",
+                hero_subtitle: "In Venezuela these 8 treatments cost every month:", total_bs: "Bs. 15.471,00", total_usd: "$63.66 USD",
+                exchange_rate: "BCV rate: Bs. 243,1105 = 1 USD", table_title: "Full list of medicines (monthly prescription)",
+                th_medicine: "Medicine", th_presentation: "Presentation", th_price_bs: "Price (Bs.)", th_price_usd: "Price (USD)", th_link: "View on Farmatodo",
+                donation_title: "How can you help me?", donation_text: "Any donation, even $5 or $10, allows me to keep buying these medicines without interruption.",
+                donate_bs: "Bolívares", fastest: "FASTEST", donate_button: "DONATE NOW (Revolut, PayPal or Bs.) ❤️",
                 thanks: "Thank you from the bottom of my heart. Every dollar or bolívar makes a huge difference.",
-                footer: "Updated November 2025 – BCV rate: 243,1105 Bs. = 1 USD",
-
+                footer: "Updated November 2025 – BCV rate: 243,1105 Bs. = 1 USD", total_row: "MONTHLY TOTAL",
                 medicines: [
-                    { name: "Duloxetine 60 mg", pres: "Duloxuni Unipharma – 30 caps.", bs: "3.276,75", usd: "$13.48" },
-                    { name: "Clonazepam 0.5 mg", pres: "Clonzep Valmor – 30 tabs.", bs: "1.710,00", usd: "$7.03" },
-                    { name: "Rosuvastatin 10 mg", pres: "La Santé – 30 tabs.", bs: "2.197,25", usd: "$9.04" },
-                    { name: "Quetiapine 100 mg", pres: "Letalop SNC – 30 tabs.", bs: "2.337,50", usd: "$9.62" },
-                    { name: "Candesartan 16 mg", pres: "Candetip FC – 30 tabs.", bs: "1.683,00", usd: "$6.92" },
-                    { name: "Metformin 500 mg", pres: "Plusandex – 30 tabs.", bs: "773,50", usd: "$3.18" },
-                    { name: "Bisoprolol 2.5 mg", pres: "Corentel Megalabs – 30 tabs.", bs: "1.113,00", usd: "$4.58" },
-                    { name: "Glimepiride 4 mg", pres: "Genven – 30 tabs.", bs: "2.380,00", usd: "$9.79" }
+                    {name:"Duloxetine 60 mg",pres:"Duloxuni Unipharma – 30 caps.",bs:"3.276,75",usd:"$13.48"},
+                    {name:"Clonazepam 0.5 mg",pres:"Clonzep Valmor – 30 tabs.",bs:"1.710,00",usd:"$7.03"},
+                    {name:"Rosuvastatin 10 mg",pres:"La Santé – 30 tabs.",bs:"2.197,25",usd:"$9.04"},
+                    {name:"Quetiapine 100 mg",pres:"Letalop SNC – 30 tabs.",bs:"2.337,50",usd:"$9.62"},
+                    {name:"Candesartan 16 mg",pres:"Candetip FC – 30 tabs.",bs:"1.683,00",usd:"$6.92"},
+                    {name:"Metformin 500 mg",pres:"Plusandex – 30 tabs.",bs:"773,50",usd:"$3.18"},
+                    {name:"Bisoprolol 2.5 mg",pres:"Corentel Megalabs – 30 tabs.",bs:"1.113,00",usd:"$4.58"},
+                    {name:"Glimepiride 4 mg",pres:"Genven – 30 tabs.",bs:"2.380,00",usd:"$9.79"}
                 ]
             },
-
-            de: {
-                title: "Hilf mir bei den monatlichen Medikamenten meiner 92-jährigen Oma | Venezuela 2025",
+            de: { title: "Hilf mir bei den monatlichen Medikamenten meiner 92-jährigen Oma | Venezuela 2025",
                 description: "Monatliche Kosten für 8 lebenswichtige Medikamente: Bs. 15.471,00 (≈ $63,66 USD zum offiziellen BCV-Kurs).",
                 hero_title: "Ich brauche deine Hilfe für die <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">monatlichen Medikamente meiner 92-jährigen Oma</span>",
-                hero_subtitle: "In Venezuela kosten diese 8 Behandlungen jeden Monat:",
-                total_bs: "Bs. 15.471,00",
-                total_usd: "$63,66 USD",
-                exchange_rate: "BCV-Kurs: Bs. 243,1105 = 1 USD",
-                table_title: "Komplettes Verzeichnis der Medikamente (monatliches Rezept)",
-                th_medicine: "Medikament",
-                th_presentation: "Darreichungsform",
-                th_price_bs: "Preis in Bs.",
-                th_price_usd: "Preis in USD",
-                th_link: "Bei Farmatodo ansehen",
-                donation_title: "Wie kannst du mir helfen?",
-                donation_text: "Jeder Beitrag, auch nur $5 oder $10, ermöglicht mir, diese Medikamente ohne Unterbrechung weiter zu kaufen.",
-                donate_bs: "Bolívares",
-                fastest: "SCHNELLSTE",
-                donate_button: "JETZT SPENDEN (Revolut, PayPal oder Bs.) ❤️",
+                hero_subtitle: "In Venezuela kosten diese 8 Behandlungen jeden Monat:", total_bs: "Bs. 15.471,00", total_usd: "$63,66 USD",
+                exchange_rate: "BCV-Kurs: Bs. 243,1105 = 1 USD", table_title: "Komplettes Verzeichnis der Medikamente (monatliches Rezept)",
+                th_medicine: "Medikament", th_presentation: "Darreichungsform", th_price_bs: "Preis in Bs.", th_price_usd: "Preis in USD", th_link: "Bei Farmatodo ansehen",
+                donation_title: "Wie kannst du mir helfen?", donation_text: "Jeder Beitrag, auch nur $5 oder $10, ermöglicht mir, diese Medikamente ohne Unterbrechung weiter zu kaufen.",
+                donate_bs: "Bolívares", fastest: "SCHNELLSTE", donate_button: "JETZT SPENDEN (Revolut, PayPal oder Bs.) ❤️",
                 thanks: "Von Herzen vielen Dank. Jeder Dollar und jeder Bolívar zählt sehr.",
-                footer: "Aktualisiert November 2025 – BCV-Kurs: 243,1105 Bs. = 1 USD",
+                footer: "Aktualisiert November 2025 – BCV-Kurs: 243,1105 Bs. = 1 USD", total_row: "MONATLICHE SUMME",
                 medicines: [
-                    { name: "Duloxetin 60 mg", pres: "Duloxuni Unipharma – 30 Kaps.", bs: "3.276,75", usd: "$13,48" },
-                    { name: "Clonazepam 0,5 mg", pres: "Clonzep Valmor – 30 Tabl.", bs: "1.710,00", usd: "$7,03" },
-                    { name: "Rosuvastatin 10 mg", pres: "La Santé – 30 Tabl.", bs: "2.197,25", usd: "$9,04" },
-                    { name: "Quetiapin 100 mg", pres: "Letalop SNC – 30 Tabl.", bs: "2.337,50", usd: "$9,62" },
-                    { name: "Candesartan 16 mg", pres: "Candetip FC – 30 Tabl.", bs: "1.683,00", usd: "$6,92" },
-                    { name: "Metformin 500 mg", pres: "Plusandex – 30 Tabl.", bs: "773,50", usd: "$3,18" },
-                    { name: "Bisoprolol 2,5 mg", pres: "Corentel Megalabs – 30 Tabl.", bs: "1.113,00", usd: "$4,58" },
-                    { name: "Glimepirid 4 mg", pres: "Genven – 30 Tabl.", bs: "2.380,00", usd: "$9,79" }
+                    {name:"Duloxetin 60 mg",pres:"Duloxuni Unipharma – 30 Kaps.",bs:"3.276,75",usd:"$13,48"},
+                    {name:"Clonazepam 0,5 mg",pres:"Clonzep Valmor – 30 Tabl.",bs:"1.710,00",usd:"$7,03"},
+                    {name:"Rosuvastatin 10 mg",pres:"La Santé – 30 Tabl.",bs:"2.197,25",usd:"$9,04"},
+                    {name:"Quetiapin 100 mg",pres:"Letalop SNC – 30 Tabl.",bs:"2.337,50",usd:"$9,62"},
+                    {name:"Candesartan 16 mg",pres:"Candetip FC – 30 Tabl.",bs:"1.683,00",usd:"$6,92"},
+                    {name:"Metformin 500 mg",pres:"Plusandex – 30 Tabl.",bs:"773,50",usd:"$3,18"},
+                    {name:"Bisoprolol 2,5 mg",pres:"Corentel Megalabs – 30 Tabl.",bs:"1.113,00",usd:"$4,58"},
+                    {name:"Glimepirid 4 mg",pres:"Genven – 30 Tabl.",bs:"2.380,00",usd:"$9,79"}
                 ]
             },
-
-            it: {
-                title: "Aiutami con i farmaci mensili di mia nonna di 92 anni | Venezuela 2025",
+            it: { title: "Aiutami con i farmaci mensili di mia nonna di 92 anni | Venezuela 2025",
                 description: "Costo mensile di 8 farmaci essenziali: Bs. 15.471,00 (≈ $63,66 USD al tasso ufficiale BCV).",
                 hero_title: "Ho bisogno del tuo aiuto per i <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">farmaci mensili di mia nonna di 92 anni</span>",
-                hero_subtitle: "In Venezuela questi 8 trattamenti costano ogni mese:",
-                total_bs: "Bs. 15.471,00",
-                total_usd: "$63,66 USD",
-                exchange_rate: "Tasso BCV: Bs. 243,1105 = 1 USD",
-                table_title: "Elenco completo dei farmaci (ricetta mensile)",
-                th_medicine: "Farmaco",
-                th_presentation: "Confezione",
-                th_price_bs: "Prezzo in Bs.",
-                th_price_usd: "Prezzo in USD",
-                th_link: "Vedi su Farmatodo",
-                donation_title: "Come puoi aiutarmi?",
-                donation_text: "Qualsiasi donazione, anche solo $5 o $10, mi permette di continuare a comprare questi farmaci senza interruzioni.",
-                donate_bs: "Bolívares",
-                fastest: "PIÙ VELOCE",
-                donate_button: "DONARE ORA (Revolut, PayPal o Bs.) ❤️",
+                hero_subtitle: "In Venezuela questi 8 trattamenti costano ogni mese:", total_bs: "Bs. 15.471,00", total_usd: "$63,66 USD",
+                exchange_rate: "Tasso BCV: Bs. 243,1105 = 1 USD", table_title: "Elenco completo dei farmaci (ricetta mensile)",
+                th_medicine: "Farmaco", th_presentation: "Confezione", th_price_bs: "Prezzo in Bs.", th_price_usd: "Prezzo in USD", th_link: "Vedi su Farmatodo",
+                donation_title: "Come puoi aiutarmi?", donation_text: "Qualsiasi donazione, anche solo $5 o $10, mi permette di continuare a comprare questi farmaci senza interruzioni.",
+                donate_bs: "Bolívares", fastest: "PIÙ VELOCE", donate_button: "DONARE ORA (Revolut, PayPal o Bs.) ❤️",
                 thanks: "Grazie di cuore. Ogni dollaro o bolívar conta tantissimo.",
-                footer: "Aggiornato novembre 2025 – Tasso BCV: 243,1105 Bs. = 1 USD",
+                footer: "Aggiornato novembre 2025 – Tasso BCV: 243,1105 Bs. = 1 USD", total_row: "TOTALE MENSILE",
                 medicines: [
-                    { name: "Duloxetina 60 mg", pres: "Duloxuni Unipharma – 30 cps.", bs: "3.276,75", usd: "$13,48" },
-                    { name: "Clonazepam 0,5 mg", pres: "Clonzep Valmor – 30 cpr.", bs: "1.710,00", usd: "$7,03" },
-                    { name: "Rosuvastatina 10 mg", pres: "La Santé – 30 cpr.", bs: "2.197,25", usd: "$9,04" },
-                    { name: "Quetiapina 100 mg", pres: "Letalop SNC – 30 cpr.", bs: "2.337,50", usd: "$9,62" },
-                    { name: "Candesartán 16 mg", pres: "Candetip FC – 30 cpr.", bs: "1.683,00", usd: "$6,92" },
-                    { name: "Metformina 500 mg", pres: "Plusandex – 30 cpr.", bs: "773,50", usd: "$3,18" },
-                    { name: "Bisoprololo 2,5 mg", pres: "Corentel Megalabs – 30 cpr.", bs: "1.113,00", usd: "$4,58" },
-                    { name: "Glimepiride 4 mg", pres: "Genven – 30 cpr.", bs: "2.380,00", usd: "$9,79" }
+                    {name:"Duloxetina 60 mg",pres:"Duloxuni Unipharma – 30 cps.",bs:"3.276,75",usd:"$13,48"},
+                    {name:"Clonazepam 0,5 mg",pres:"Clonzep Valmor – 30 cpr.",bs:"1.710,00",usd:"$7,03"},
+                    {name:"Rosuvastatina 10 mg",pres:"La Santé – 30 cpr.",bs:"2.197,25",usd:"$9,04"},
+                    {name:"Quetiapina 100 mg",pres:"Letalop SNC – 30 cpr.",bs:"2.337,50",usd:"$9,62"},
+                    {name:"Candesartán 16 mg",pres:"Candetip FC – 30 cpr.",bs:"1.683,00",usd:"$6,92"},
+                    {name:"Metformina 500 mg",pres:"Plusandex – 30 cpr.",bs:"773,50",usd:"$3,18"},
+                    {name:"Bisoprololo 2,5 mg",pres:"Corentel Megalabs – 30 cpr.",bs:"1.113,00",usd:"$4,58"},
+                    {name:"Glimepiride 4 mg",pres:"Genven – 30 cpr.",bs:"2.380,00",usd:"$9,79"}
                 ]
             }
         };
 
-        // Links stay the same for all languages
         const farmatodoLinks = [
             "https://www.farmatodo.com.ve/producto/114793547-duloxetina-60mg-duloxuni-x30-capsulas-unipharma",
             "https://www.farmatodo.com.ve/producto/111895899-clonazepam-clonzep-05-mg-x-30-tabletas",
@@ -282,12 +237,14 @@
             "https://www.farmatodo.com.ve/producto/115624569-candesartan-16-mg-candetip-fc-laboratorios-caja-x-30-comprimidos",
             "https://www.farmatodo.com.ve/producto/115600639-metformina-clorhidrato-500-mg-plusandex-x-30-tabletas",
             "https://www.farmatodo.com.ve/producto/111273477-bisoprolol-corentel-25mg-30comprimidos",
-            "https://www.farmatodo.com.ve/producto/11.201775-glimepirida-4mg-30comprimidos-genven"
+            "https://www.farmatodo.com.ve/producto/111201775-glimepirida-4mg-30comprimidos-genven"
         ];
 
         function setLang(lang) {
             localStorage.setItem("lang", lang);
             document.documentElement.lang = lang;
+
+            // Update all text
             document.querySelectorAll("[data-i18n]").forEach(el => {
                 const key = el.getAttribute("data-i18n");
                 if (translations[lang][key] !== undefined) {
@@ -295,10 +252,16 @@
                 }
             });
 
-            // Update active button
+            // Fix meta description (this was the bug!)
+            document.getElementById("meta-description")
+                    .setAttribute("content", translations[lang].description);
+
+            // Active button style
             document.querySelectorAll(".lang-btn").forEach(b => {
                 b.classList.toggle("bg-cyan-600", b.dataset.lang === lang);
                 b.classList.toggle("bg-transparent", b.dataset.lang !== lang);
+                b.classList.toggle("text-white", b.dataset.lang === lang);
+                b.classList.toggle("text-gray-400", b.dataset.lang !== lang);
             });
 
             // Rebuild medicines table
@@ -321,11 +284,11 @@
                 tbody.appendChild(tr);
             });
 
-            // Total row (always the same numbers)
+            // Total row
             const totalTr = document.createElement("tr");
             totalTr.className = "bg-gradient-to-r from-purple-900 to-cyan-900 text-white font-bold text-xl";
             totalTr.innerHTML = `
-                <td colspan="2" class="px-6 py-6 text-right">${lang === "en" ? "MONTHLY TOTAL" : lang === "de" ? "MONATLICHE SUMME" : lang === "it" ? "TOTALE MENSILE" : "TOTAL MENSUAL"}</td>
+                <td colspan="2" class="px-6 py-6 text-right">${translations[lang].total_row}</td>
                 <td class="px-6 py-6 text-right">Bs. 15.471,00</td>
                 <td class="px-6 py-6 text-right text-green-400 text-2xl">$63,66 USD</td>
                 <td class="px-6 py-6 text-center">—</td>
@@ -333,7 +296,7 @@
             tbody.appendChild(totalTr);
         }
 
-        // Init
+        // Init on load
         const savedLang = localStorage.getItem("lang") || "es";
         setLang(savedLang);
     </script>
