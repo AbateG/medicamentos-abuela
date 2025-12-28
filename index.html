@@ -3,467 +3,423 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ayuda con los medicamentos mensuales de mi abuela de 92 años en Venezuela – Noviembre 2025">
+    <meta name="description" content="Ayuda con los medicamentos mensuales de mi abuela de 92 años en Venezuela – Diciembre 2025">
     <meta name="theme-color" content="#1e1b4b">
-    <meta name="color-scheme" content="dark">
 
-    <!-- Preconnect -->
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💊</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ayúdame con los medicamentos de mi abuela de 92 años | Venezuela 2025">
+    <meta property="og:description" content="Costo mensual: Bs. 20.005,31 (≈ $67,81 USD). Cualquier aporte ayuda enormemente.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://tudominio.com/og-abuela.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ayúdame con los medicamentos de mi abuela de 92 años | Venezuela 2025">
+    <meta name="twitter:description" content="Costo mensual: Bs. 20.005,31 (≈ $67,81 USD). Cualquier aporte ayuda enormemente.">
+    <meta name="twitter:image" content="https://tudominio.com/og-abuela.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Appeal",
+      "name": "Medicinas mensuales abuela 92 años - Venezuela 2025",
+      "description": "8 medicamentos esenciales cuestan $67.81 USD al mes",
+      "amount": "67.81",
+      "currency": "USD"
+    }
+    </script>
+
+    <title>Ayúdame con los medicamentos de mi abuela de 92 años | Venezuela 2025</title>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Ayúdame con los medicamentos de mi abuela de 92 años | Venezuela 2025">
-    <meta property="og:description" content="Costo mensual: Bs. 15.471,00 (≈ $63,66 USD). Cualquier aporte ayuda.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://tudominio.com/og-abuela.jpg">
-    <meta property="og:url" content="https://tudominio.com/">
-
-    <!-- Favicon sin error 404 -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>Heart</text></svg>">
-
-    <title>Ayúdame con los medicamentos de mi abuela de 92 años | Venezuela 2025</title>
-
-    <!-- Tailwind CDN (sin warnings) -->
+    <!-- Tailwind CDN (con configuración optimizada) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        log: false,
-        theme: {
-          extend: {
-            fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-            animation: { 'fade-in': 'fadeIn 1s ease-out forwards', 'slide-up': 'slideUp 0.9s ease-out forwards' },
-            keyframes: {
-              fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-              slideUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                    backdropBlur: { DEFAULT: '16px' }
+                }
             }
-          }
         }
-      }
     </script>
 
-
-
     <style>
-      :root { --glass: rgba(255,255,255,0.09); --glass-border: rgba(255,255,255,0.18); }
-      .glass { background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 1.5rem; }
-      .focus-ring:focus-visible { outline: 3px solid #06b6d4; outline-offset: 4px; }
-      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-      .scrollbar-hide::-webkit-scrollbar { display: none; }
+        :root {
+            --glass: rgba(255, 255, 255, 0.09);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade { animation: fadeIn 1s ease-out forwards; }
+        .animate-slide { animation: slideUp 0.9s ease-out forwards; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
     </style>
 </head>
 
 <body class="min-h-screen bg-gradient-to-br from-indigo-950 via-purple-950 to-slate-950 text-white font-sans antialiased">
 
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-cyan-600 px-6 py-3 rounded-lg z-50 font-bold focus-ring">
-    Saltar al contenido
-  </a>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-cyan-600 px-6 py-3 rounded-lg z-50 font-bold">Saltar al contenido</a>
 
-  <!-- Language Switcher -->
-  <nav class="fixed top-4 right-4 z-50 flex gap-2 glass rounded-full p-3 shadow-2xl" aria-label="Seleccionar idioma">
-    <button data-lang="es" class="lang-btn px-5 py-2 rounded-full text-sm font-bold transition focus-ring">ES</button>
-    <button data-lang="en" class="lang-btn px-5 py-2 rounded-full text-sm font-bold transition focus-ring">EN</button>
-    <button data-lang="de" class="lang-btn px-5 py-2 rounded-full text-sm font-bold transition focus-ring">DE</button>
-    <button data-lang="it" class="lang-btn px-5 py-2 rounded-full text-sm font-bold transition focus-ring">IT</button>
-  </nav>
+    <!-- Language Switcher -->
+    <nav class="fixed top-4 right-4 z-50 flex gap-2 glass rounded-full p-3 shadow-2xl border border-white/20" aria-label="Idioma">
+        <button aria-label="Español"  data-lang="es" class="lang-btn px-4 py-2 rounded-full text-sm font-bold transition">ES</button>
+        <button aria-label="English"  data-lang="en" class="lang-btn px-4 py-2 rounded-full text-sm font-bold transition">EN</button>
+        <button aria-label="Deutsch"  data-lang="de" class="lang-btn px-4 py-2 rounded-full text-sm font-bold transition">DE</button>
+        <button aria-label="Italiano" data-lang="it" class="lang-btn px-4 py-2 rounded-full text-sm font-bold transition">IT</button>
+    </nav>
 
-  <main id="main">
-    <!-- Hero -->
-    <section class="relative py-24 px-6 overflow-hidden">
-      <div class="absolute inset-0 bg-black/50"></div>
-      <div class="relative max-w-5xl mx-auto text-center">
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-tight animate-fade-in" data-t="hero_title">
-          Necesito tu ayuda con los <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">medicamentos mensuales de mi abuela de 92 años</span>
-        </h1>
-        <p class="mt-10 text-2xl md:text-3xl text-gray-200 animate-fade-in delay-200" data-t="hero_subtitle">
-          En Venezuela estos 8 tratamientos cuestan cada mes:
-        </p>
-        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          <div class="text-5xl md:text-7xl font-black text-cyan-400 animate-pulse" data-t="total_bs">Bs. 15.471,00</div>
-          <div class="text-4xl md:text-6xl font-black text-green-400">
-            ≈ <span class="text-5xl md:text-7xl" data-t="total_usd">$63,66 USD</span>
-            <div class="mt-4 text-lg text-gray-400" data-t="exchange_rate">Tasa BCV: Bs. 243,1105 = 1 USD</div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <main id="main">
+        <!-- Hero -->
+        <section class="relative py-24 px-6 overflow-hidden">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative max-w-5xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-tight animate-fade" data-t="hero_title">
+                    Necesito tu ayuda con los <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">medicamentos mensuales de mi abuela de 92 años</span>
+                </h1>
+                <p class="mt-10 text-2xl md:text-3xl text-gray-200 animate-fade delay-200" data-t="hero_subtitle">
+                    En Venezuela estos 8 tratamientos cuestan cada mes:
+                </p>
 
-    <!-- Tabla de medicamentos -->
-    <section class="py-20 px-6">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-slide-up" data-t="table_title">
-          Detalle completo de medicamentos (receta mensual)
-        </h2>
-        <div class="glass rounded-3xl shadow-2xl overflow-hidden animate-slide-up delay-200">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left">
-              <thead class="bg-gradient-to-r from-purple-800 to-cyan-800 text-white">
-                <tr>
-                  <th class="px-6 py-5 text-lg font-bold" data-t="th_medicine">Medicamento</th>
-                  <th class="px-6 py-5 text-lg font-bold text-right" data-t="th_presentation">Presentación</th>
-                  <th class="px-6 py-5 text-lg font-bold text-right" data-t="th_price_bs">Precio en Bs.</th>
-                  <th class="px-6 py-5 text-lg font-bold text-right" data-t="th_price_usd">Precio en USD</th>
-                  <th class="px-6 py-5 text-lg font-bold text-center" data-t="th_link">Ver en Farmatodo</th>
-                </tr>
-              </thead>
-              <tbody id="medicines-table" class="divide-y divide-white/10"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Donaciones -->
-    <section class="py-24 px-6 bg-black/40">
-      <div class="max-w-6xl mx-auto text-center">
-        <h2 class="text-4xl md:text-6xl font-black mb-10" data-t="donation_title">¿Cómo puedes ayudarme?</h2>
-        <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-16 leading-relaxed" data-t="donation_text">
-          Cualquier aporte, aunque sea $5 o $10 dólares, me permite seguir comprando estos medicamentos sin interrupciones.
-        </p>
-
-        <!-- Métodos tradicionales -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
-          <div class="glass p-10 rounded-3xl shadow-xl">
-            <h3 class="text-3xl font-bold mb-6 text-cyan-400" data-t="donate_bs">Bolívares</h3>
-            <div class="font-mono text-left space-y-4 text-lg">
-              <div class="text-gray-300">Pago Móvil</div>
-              <div class="text-4xl font-black text-white">0416-3457550</div>
-              <div class="text-gray-300">Banco Mercantil</div>
-              <div class="text-yellow-400 font-bold text-xl mt-6">Cédula: V-24.229.213</div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                    <div class="text-5xl md:text-7xl font-black text-cyan-400 animate-pulse" data-t="total_bs">Bs. 20.005,31</div>
+                    <div class="text-4xl md:text-6xl font-black text-green-400">
+                        ≈ <span class="text-5xl md:text-7xl" data-t="total_usd">$67,81 USD</span>
+                        <div class="mt-4 text-lg text-gray-400" data-t="exchange_rate">Tasa BCV: Bs. 294,969,9 = 1 USD</div>
+                    </div>
+                </div>
             </div>
-          </div>
+        </section>
 
-          <!-- PayPal en una sola línea perfecta -->
-          <div class="glass p-10 rounded-3xl shadow-xl">
-            <h3 class="text-3xl font-bold mb-6 text-purple-400">PayPal</h3>
-            <div class="font-mono text-xl md:text-2xl break-all whitespace-nowrap overflow-x-auto scrollbar-hide px-2">
-              dabategaray@gmail.com
+        <!-- Impact Section -->
+        <section class="py-20 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-10 animate-slide" data-t="impact_title">Por qué tu ayuda es tan importante</h2>
+                <p class="text-xl md:text-2xl text-gray-200 leading-relaxed mb-12 animate-slide delay-200" data-t="impact_text">
+                    Mi abuela, a sus 92 años, ha dedicado su vida a cuidar de su familia. Ahora, con problemas de salud que requieren estos medicamentos esenciales, cada mes representa un desafío. Tu generosidad no solo cubre los costos médicos, sino que le permite vivir con dignidad y tranquilidad.
+                </p>
             </div>
-          </div>
+        </section>
 
-          <div class="glass p-10 rounded-3xl shadow-xl border-4 border-cyan-500 relative overflow-hidden">
-            <span class="absolute top-4 right-4 bg-cyan-500 text-black text-xs font-bold px-4 py-2 rounded-full" data-t="fastest">MÁS RÁPIDO</span>
-            <h3 class="text-3xl font-bold mb-6 text-cyan-400">Revolut</h3>
-            <p class="font-mono text-3xl font-black">@dabate</p>
-            <a href="https://revolut.me/dabate" target="_blank" rel="noopener noreferrer">
-              <img loading="lazy" decoding="async"
-                   src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://revolut.me/dabate&ecc=H"
-                   alt="QR Revolut @dabate" class="mx-auto mt-8 w-56 h-56 rounded-2xl border-4 border-cyan-600 hover:scale-110 transition">
-            </a>
-          </div>
-        </div>
+        <!-- Table -->
+        <section class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-slide" data-t="table_title">
+                    Detalle completo de medicamentos (receta mensual)
+                </h2>
 
-        <!-- Criptomonedas -->
-        <h3 class="text-4xl md:text-6xl font-black mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent" data-t="crypto_title">
-          Criptomonedas
-        </h3>
-
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
-
-          <!-- ETH -->
-          <div class="group crypto-card" data-chain="ethereum" data-address="0xeA6EDc8A737841f569af0A2D96B5ed5f3d61296E">
-            <div class="crypto-inner">
-              <div class="mt-6 text-center w-full">
-                <div class="text-2xl font-black text-cyan-400 mb-2">ETH</div>
-                <button class="copy-btn font-mono text-xs md:text-sm break-all bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition focus-ring w-full leading-tight">
-                  0xeA6EDc8A737841f569af0A<br>2D96B5ed5f3d61296E
-                </button>
-              </div>
+                <div class="glass rounded-3xl shadow-2xl overflow-hidden animate-slide delay-200">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-gradient-to-r from-purple-800 to-cyan-800 text-white">
+                                <tr>
+                                    <th class="px-6 py-5 text-lg font-bold" data-t="th_medicine">Medicamento</th>
+                                    <th class="px-6 py-5 text-lg font-bold text-right" data-t="th_presentation">Presentación</th>
+                                    <th class="px-6 py-5 text-lg font-bold text-right" data-t="th_price_bs">Precio en Bs.</th>
+                                    <th class="px-6 py-5 text-lg font-bold text-right" data-t="th_price_usd">Precio en USD</th>
+                                    <th class="px-6 py-5 text-lg font-bold text-center" data-t="th_link">Ver en Farmatodo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="medicines-table" class="divide-y divide-white/10"></tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-          </div>
+        </section>
 
-          <!-- BTC -->
-          <div class="group crypto-card" data-chain="bitcoin" data-address="bc1qhuqhpvn0fq7xkvr0j9rwzw5w2q4mnagkkqq3dp">
-            <div class="crypto-inner">
-              <div class="mt-6 text-center w-full">
-                <div class="text-2xl font-black text-orange-400 mb-2">BTC</div>
-                <button class="copy-btn font-mono text-xs md:text-sm break-all bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition focus-ring w-full leading-tight">
-                  bc1qhuqhpvn0fq7xkvr0j9rwz<br>w5w2q4mnagkkqq3dp
-                </button>
-              </div>
+        <!-- Donation Section -->
+        <section class="py-24 px-6 bg-black/40">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-4xl md:text-6xl font-black mb-10" data-t="donation_title">¿Cómo puedes ayudarme?</h2>
+                <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-16 leading-relaxed" data-t="donation_text">
+                    Cualquier aporte, aunque sea $5 o $10 dólares, me permite seguir comprando estos medicamentos sin interrupciones.
+                </p>
+
+                <!-- Payment Methods -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+                    <!-- Bolívares -->
+                    <div class="glass p-10 rounded-3xl shadow-xl">
+                        <h3 class="text-3xl font-bold mb-6 text-cyan-400" data-t="donate_bs">Bolívares</h3>
+                        <div class="font-mono text-left space-y-4 text-lg">
+                            <div class="text-gray-300">Pago Móvil</div>
+                            <div class="text-4xl font-black text-white">0416-3457550</div>
+                            <div class="text-gray-300">Banco Mercantil</div>
+                            <div class="text-yellow-400 font-bold text-xl mt-6">Cédula: V-24.229.213</div>
+                        </div>
+                    </div>
+
+                    <!-- PayPal -->
+                    <div class="glass p-10 rounded-3xl shadow-xl">
+                        <h3 class="text-3xl font-bold mb-6 text-purple-400">PayPal</h3>
+                        <p class="font-mono text-2xl break-all leading-tight">dabategaray@gmail.com</p>
+                    </div>
+
+                    <!-- Revolut -->
+                    <div class="glass p-10 rounded-3xl shadow-xl border-4 border-cyan-500 relative overflow-hidden">
+                        <span class="absolute top-4 right-4 bg-cyan-500 text-black text-xs font-bold px-4 py-2 rounded-full" data-t="fastest">MÁS RÁPIDO</span>
+                        <h3 class="text-3xl font-bold mb-6 text-cyan-400">Revolut</h3>
+                        <p class="font-mono text-3xl font-black">@dabate</p>
+                        <a href="https://revolut.me/dabate" target="_blank" rel="noopener">
+                            <img loading="lazy"
+                                 src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://revolut.me/dabate"
+                                 alt="QR Revolut @dabate"
+                                 class="mx-auto mt-8 w-56 h-56 rounded-2xl border-4 border-cyan-600 hover:scale-110 transition duration-300">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cryptocurrencies -->
+                <h3 class="text-4xl font-bold mb-12 text-cyan-300" data-t="crypto_title">Criptomonedas</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
+                    <!-- ETH -->
+                    <div class="glass p-8 rounded-3xl text-center shadow-xl">
+                        <img loading="lazy" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=0xeA6EDc8A737841f569af0A2D96B5ed5f3d61296E" alt="Código QR para donar en Ethereum a la dirección 0xeA6EDc8A737841f569af0A2D96B5ed5f3d61296E" class="mx-auto mb-4 rounded-xl">
+                        <p class="font-bold text-cyan-400 text-lg">ETH</p>
+                        <p class="font-mono text-xs break-all mt-2 leading-tight">0xeA6EDc8A737841f569af0A<br>2D96B5ed5f3d61296E</p>
+                    </div>
+
+                    <!-- BTC -->
+                    <div class="glass p-8 rounded-3xl text-center shadow-xl">
+                        <img loading="lazy" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=bc1qhuqhpvn0fq7xkvr0j9rwzw5w2q4mnagkkqq3dp" alt="Código QR para donar en Bitcoin a la dirección bc1qhuqhpvn0fq7xkvr0j9rwzw5w2q4mnagkkqq3dp" class="mx-auto mb-4 rounded-xl">
+                        <p class="font-bold text-orange-400 text-lg">BTC</p>
+                        <p class="font-mono text-xs break-all mt-2 leading-tight">bc1qhuqhpvn0fq7xkvr0j9rwz<br>w5w2q4mnagkkqq3dp</p>
+                    </div>
+
+                    <!-- SOL -->
+                    <div class="glass p-8 rounded-3xl text-center shadow-xl">
+                        <img loading="lazy" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=2aC2jXeM31ePrPHL5mfGFCGMINs4BsNkpQNSaTy6ARhpB" alt="Código QR para donar en Solana a la dirección 2aC2jXeM31ePrPHL5mfGFCGMINs4BsNkpQNSaTy6ARhpB" class="mx-auto mb-4 rounded-xl">
+                        <p class="font-bold text-purple-400 text-lg">SOL</p>
+                        <p class="font-mono text-xs break-all mt-2 leading-tight">2aC2jXeM31ePrPHL5mfGFCG<br>MINs4BsNkpQNSaTy6ARhpB</p>
+                        <p class="text-xs text-green-400 mt-2" data-t="no_memo">No memo requerido</p>
+                    </div>
+
+                    <!-- XRP -->
+                    <div class="glass p-8 rounded-3xl text-center shadow-xl">
+                        <img loading="lazy" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=rFXyJhLo2X2Eo6r7jcJiKBEu3qu8VZA7G3" alt="Código QR para donar en Ripple (XRP) a la dirección rFXyJhLo2X2Eo6r7jcJiKBEu3qu8VZA7G3" class="mx-auto mb-4 rounded-xl">
+                        <p class="font-bold text-gray-300 text-lg">XRP</p>
+                        <p class="font-mono text-xs break-all mt-2 leading-tight">rFXyJhLo2X2Eo6r7jcJiKBE<br>u3qu8VZA7G3</p>
+                        <p class="text-xs text-green-400 mt-2" data-t="no_tag">No tag requerido</p>
+                    </div>
+
+                    <!-- XLM -->
+                    <div class="glass p-8 rounded-3xl text-center shadow-xl">
+                        <img loading="lazy" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=GBGPRL64Z4VQZQOQHPRM3WTO7KJNZ5YEYNMDZBAWCZ7WV4BQRE3UMI" alt="Código QR para donar en Stellar (XLM) a la dirección GBGPRL64Z4VQZQOQHPRM3WTO7KJNZ5YEYNMDZBAWCZ7WV4BQRE3UMI" class="mx-auto mb-4 rounded-xl">
+                        <p class="font-bold text-red-400 text-lg">XLM</p>
+                        <p class="font-mono text-xs break-all mt-2 leading-tight">GBGPRL64Z4VQZQOQHPRM3<br>WTO7KJNZ5YEYNMDZBAW<br>CZ7WV4BQRE3UMI</p>
+                        <p class="text-xs text-green-400 mt-2" data-t="no_memo">No memo requerido</p>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="mt-24">
+                    <a href="https://revolut.me/dabate" target="_blank" rel="noopener"
+                       class="inline-block bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white text-3xl md:text-4xl font-black py-8 px-24 rounded-full shadow-2xl transform hover:scale-105 transition duration-300">
+                        <span data-t="donate_button">DONAR AHORA</span>
+                    </a>
+                </div>
+
+                <p class="mt-16 text-xl md:text-2xl text-gray-300 leading-relaxed" data-t="thanks">
+                    Gracias de corazón. Cada dólar o bolívar cuenta mucho.
+                </p>
             </div>
-          </div>
+        </section>
+    </main>
 
-          <!-- SOL -->
-          <div class="group crypto-card" data-chain="solana" data-address="2aC2jXeM31ePrPHL5mfGFCGMINs4BsNkpQNSaTy6ARhpB">
-            <div class="crypto-inner">
-              <div class="mt-6 text-center w-full">
-                <div class="text-2xl font-black text-purple-400 mb-2">SOL</div>
-                <button class="copy-btn font-mono text-xs md:text-sm break-all bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition focus-ring w-full leading-tight">
-                  2aC2jXeM31ePrPHL5mfGFCG<br>MINs4BsNkpQNSaTy6ARhpB
-                </button>
-                <p class="text-green-400 text-xs mt-2" data-t="no_memo">No memo requerido</p>
-              </div>
-            </div>
-          </div>
+    <footer class="py-12 text-center text-gray-500 text-sm md:text-base border-t border-white/10" data-t="footer">
+        Actualizado diciembre 2025 – Tasa BCV: 294,969,9 Bs. = 1 USD
+    </footer>
 
-          <!-- XRP -->
-          <div class="group crypto-card" data-chain="ripple" data-address="rFXyJhLo2X2Eo6r7jcJiKBEu3qu8VZA7G3">
-            <div class="crypto-inner">
-              <div class="mt-6 text-center w-full">
-                <div class="text-2xl font-black text-gray-300 mb-2">XRP</div>
-                <button class="copy-btn font-mono text-xs md:text-sm break-all bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition focus-ring w-full leading-tight">
-                  rFXyJhLo2X2Eo6r7jcJiKBE<br>u3qu8VZA7G3
-                </button>
-                <p class="text-green-400 text-xs mt-2" data-t="no_tag">No tag requerido</p>
-              </div>
-            </div>
-          </div>
+    <!-- Full Translations + JavaScript -->
+    <script>
+        const translations = {
+            es: {
+                title: "Ayúdame con los medicamentos de mi abuela de 92 años | Venezuela 2025",
+                hero_title: "Necesito tu ayuda con los <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">medicamentos mensuales de mi abuela de 92 años</span>",
+                hero_subtitle: "En Venezuela estos 8 tratamientos cuestan cada mes:",
+                total_bs: "Bs. 20.005,31", total_usd: "$67,81 USD", exchange_rate: "Tasa BCV: Bs. 294,969,9 = 1 USD",
+                table_title: "Detalle completo de medicamentos (receta mensual)",
+                th_medicine: "Medicamento", th_presentation: "Presentación", th_price_bs: "Precio en Bs.", th_price_usd: "Precio en USD", th_link: "Ver en Farmatodo",
+                donation_title: "¿Cómo puedes ayudarme?", donation_text: "Cualquier aporte, aunque sea $5 o $10 dólares, me permite seguir comprando estos medicamentos sin interrupciones.",
+                donate_bs: "Bolívares", fastest: "MÁS RÁPIDO", donate_button: "DONAR AHORA", thanks: "Gracias de corazón. Cada dólar o bolívar cuenta mucho.",
+                footer: "Actualizado diciembre 2025 – Tasa BCV: 294,969,9 Bs. = 1 USD", crypto_title: "Criptomonedas",
+                no_memo: "No memo requerido", no_tag: "No tag requerido",
+                impact_title: "Por qué tu ayuda es tan importante", impact_text: "Mi abuela, a sus 92 años, ha dedicado su vida a cuidar de su familia. Ahora, con problemas de salud que requieren estos medicamentos esenciales, cada mes representa un desafío. Tu generosidad no solo cubre los costos médicos, sino que le permite vivir con dignidad y tranquilidad.",
+                medicines: [
+                    { name: "Duloxetina 60 mg", pres: "Duloxuni Unipharma – 30 cáps.", bs: "4.395,50", usd: "$14,90" },
+                    { name: "Clonazepam 0,5 mg", pres: "Clonzep Valmor – 30 tabl.", bs: "1.990,00", usd: "$6,75" },
+                    { name: "Rosuvastatina 10 mg", pres: "La Santé – 30 tabl.", bs: "2.656,25", usd: "$9,00" },
+                    { name: "Quetiapina 100 mg", pres: "Letalop SNC – 30 comp.", bs: "2.656,25", usd: "$9,00" },
+                    { name: "Candesartán 16 mg", pres: "Candetip FC – 30 comp.", bs: "2.397,00", usd: "$8,13" },
+                    { name: "Metformina 500 mg", pres: "Plusandex – 30 tabl.", bs: "1.128,29", usd: "$3,82" },
+                    { name: "Bisoprolol 2,5 mg", pres: "Corentel Megalabs – 30 comp.", bs: "1.643,77", usd: "$5,57" },
+                    { name: "Glimepirida 4 mg", pres: "Genven – 30 comp.", bs: "3.138,25", usd: "$10,64" }
+                ]
+            },
+            en: {
+                title: "Help me with my 92-year-old grandmother’s monthly medicines | Venezuela 2025",
+                hero_title: "I need your help with my 92-year-old grandmother’s <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">monthly medicines</span>",
+                hero_subtitle: "In Venezuela these 8 treatments cost every month:",
+                total_bs: "Bs. 20.005,31", total_usd: "$67,81 USD", exchange_rate: "BCV rate: Bs. 294,969,9 = 1 USD",
+                table_title: "Full list of medicines (monthly prescription)",
+                th_medicine: "Medicine", th_presentation: "Presentation", th_price_bs: "Price (Bs.)", th_price_usd: "Price (USD)", th_link: "View on Farmatodo",
+                donation_title: "How can you help me?", donation_text: "Any donation, even $5 or $10, allows me to keep buying these medicines without interruption.",
+                donate_bs: "Bolívares", fastest: "FASTEST", donate_button: "DONATE NOW", thanks: "Thank you from the bottom of my heart. Every dollar or bolívar makes a huge difference.",
+                footer: "Updated December 2025 – BCV rate: 294.969,9 Bs. = 1 USD", crypto_title: "Cryptocurrencies",
+                no_memo: "No memo required", no_tag: "No tag required",
+                impact_title: "Why your help is so important", impact_text: "My grandmother, at 92 years old, has dedicated her life to caring for her family. Now, with health issues that require these essential medications, each month represents a challenge. Your generosity not only covers the medical costs, but allows her to live with dignity and peace of mind.",
+                medicines: [
+                    { name: "Duloxetine 60 mg", pres: "Duloxuni Unipharma – 30 caps.", bs: "4.395,50", usd: "$14,90" },
+                    { name: "Clonazepam 0.5 mg", pres: "Clonzep Valmor – 30 tabs.", bs: "1.990,00", usd: "$6,75" },
+                    { name: "Rosuvastatin 10 mg", pres: "La Santé – 30 tabs.", bs: "2.656,25", usd: "$9,00" },
+                    { name: "Quetiapine 100 mg", pres: "Letalop SNC – 30 tabs.", bs: "2.656,25", usd: "$9,00" },
+                    { name: "Candesartan 16 mg", pres: "Candetip FC – 30 tabs.", bs: "2.397,00", usd: "$8,13" },
+                    { name: "Metformin 500 mg", pres: "Plusandex – 30 tabs.", bs: "1.128,29", usd: "$3,82" },
+                    { name: "Bisoprolol 2.5 mg", pres: "Corentel Megalabs – 30 tabs.", bs: "1.643,77", usd: "$5,57" },
+                    { name: "Glimepiride 4 mg", pres: "Genven – 30 tabs.", bs: "3.138,25", usd: "$10,64" }
+                ]
+            },
+            de: {
+                title: "Hilf mir bei den monatlichen Medikamenten meiner 92-jährigen Oma | Venezuela 2025",
+                hero_title: "Ich brauche deine Hilfe für die <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">monatlichen Medikamente meiner 92-jährigen Oma</span>",
+                hero_subtitle: "In Venezuela kosten diese 8 Behandlungen jeden Monat:",
+                total_bs: "Bs. 20.005,31", total_usd: "$67,81 USD", exchange_rate: "BCV-Kurs: Bs. 294,969,9 = 1 USD",
+                table_title: "Komplettes Verzeichnis der Medikamente (monatliches Rezept)",
+                th_medicine: "Medikament", th_presentation: "Darreichungsform", th_price_bs: "Preis in Bs.", th_price_usd: "Preis in USD", th_link: "Bei Farmatodo ansehen",
+                donation_title: "Wie kannst du mir helfen?", donation_text: "Jeder Beitrag, auch nur $5 oder $10, ermöglicht mir, diese Medikamente ohne Unterbrechung weiter zu kaufen.",
+                donate_bs: "Bolívares", fastest: "SCHNELLSTE", donate_button: "JETZT SPENDEN", thanks: "Von Herzen vielen Dank. Jeder Dollar und jeder Bolívar zählt sehr.",
+                footer: "Aktualisiert Dezember 2025 – BCV-Kurs: 294,969,9 Bs. = 1 USD", crypto_title: "Kryptowährungen",
+                no_memo: "Kein Memo erforderlich", no_tag: "Kein Tag erforderlich",
+                impact_title: "Warum deine Hilfe so wichtig ist", impact_text: "Meine Großmutter, im Alter von 92 Jahren, hat ihr Leben der Pflege ihrer Familie gewidmet. Jetzt, mit Gesundheitsproblemen, die diese essentiellen Medikamente erfordern, stellt jeder Monat eine Herausforderung dar. Deine Großzügigkeit deckt nicht nur die medizinischen Kosten, sondern ermöglicht es ihr, mit Würde und Gelassenheit zu leben.",
+                medicines: [
+                    { name: "Duloxetin 60 mg", pres: "Duloxuni Unipharma – 30 Kaps.", bs: "4.395,50", usd: "$14,90" },
+                    { name: "Clonazepam 0,5 mg", pres: "Clonzep Valmor – 30 Tabl.", bs: "1.990,00", usd: "$6,75" },
+                    { name: "Rosuvastatin 10 mg", pres: "La Santé – 30 Tabl.", bs: "2.656,25", usd: "$9,00" },
+                    { name: "Quetiapin 100 mg", pres: "Letalop SNC – 30 Tabl.", bs: "2.656,25", usd: "$9,00" },
+                    { name: "Candesartan 16 mg", pres: "Candetip FC – 30 Tabl.", bs: "2.397,00", usd: "$8,13" },
+                    { name: "Metformin 500 mg", pres: "Plusandex – 30 Tabl.", bs: "1.128,29", usd: "$3,82" },
+                    { name: "Bisoprolol 2,5 mg", pres: "Corentel Megalabs – 30 Tabl.", bs: "1.643,77", usd: "$5,57" },
+                    { name: "Glimepirid 4 mg", pres: "Genven – 30 Tabl.", bs: "3.138,25", usd: "$10,64" }
+                ]
+            },
+            it: {
+                title: "Aiutami con i farmaci mensili di mia nonna di 92 anni | Venezuela 2025",
+                hero_title: "Ho bisogno del tuo aiuto per i <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">farmaci mensili di mia nonna di 92 anni</span>",
+                hero_subtitle: "In Venezuela questi 8 trattamenti costano ogni mese:",
+                total_bs: "Bs. 20.005,31", total_usd: "$67,81 USD", exchange_rate: "Tasso BCV: Bs. 294,969,9 = 1 USD",
+                table_title: "Elenco completo dei farmaci (ricetta mensile)",
+                th_medicine: "Farmaco", th_presentation: "Confezione", th_price_bs: "Prezzo in Bs.", th_price_usd: "Prezzo in USD", th_link: "Vedi su Farmatodo",
+                donation_title: "Come puoi aiutarmi?", donation_text: "Qualsiasi donazione, anche solo $5 o $10, mi permette di continuare a comprare questi farmaci senza interruzioni.",
+                donate_bs: "Bolívares", fastest: "PIÙ VELOCE", donate_button: "DONARE ORA", thanks: "Grazie di cuore. Ogni dollaro o bolívar conta tantissimo.",
+                footer: "Aggiornato dicembre 2025 – Tasso BCV: 294,969,9 Bs. = 1 USD", crypto_title: "Criptovalute",
+                no_memo: "Nessun memo richiesto", no_tag: "Nessun tag richiesto",
+                impact_title: "Perché il tuo aiuto è così importante", impact_text: "Mia nonna, a 92 anni, ha dedicato la sua vita a prendersi cura della sua famiglia. Ora, con problemi di salute che richiedono questi farmaci essenziali, ogni mese rappresenta una sfida. La tua generosità non solo copre i costi medici, ma le permette di vivere con dignità e tranquillità.",
+                medicines: [
+                    { name: "Duloxetina 60 mg", pres: "Duloxuni Unipharma – 30 cps.", bs: "4.395,50", usd: "$14,90" },
+                    { name: "Clonazepam 0,5 mg", pres: "Clonzep Valmor – 30 cpr.", bs: "1.990,00", usd: "$6,75" },
+                    { name: "Rosuvastatina 10 mg", pres: "La Santé – 30 cpr.", bs: "2.656,25", usd: "$9,00" },
+                    { name: "Quetiapina 100 mg", pres: "Letalop SNC – 30 cpr.", bs: "2.656,25", usd: "$9,00" },
+                    { name: "Candesartán 16 mg", pres: "Candetip FC – 30 cpr.", bs: "2.397,00", usd: "$8,13" },
+                    { name: "Metformina 500 mg", pres: "Plusandex – 30 cpr.", bs: "1.128,29", usd: "$3,82" },
+                    { name: "Bisoprololo 2,5 mg", pres: "Corentel Megalabs – 30 cpr.", bs: "1.643,77", usd: "$5,57" },
+                    { name: "Glimepiride 4 mg", pres: "Genven – 30 cpr.", bs: "3.138,25", usd: "$10,64" }
+                ]
+            }
+        };
 
-          <!-- XLM -->
-          <div class="group crypto-card" data-chain="stellar" data-address="GBGPRL64Z4VQZQOQHPRM3WTO7KJNZ5YEYNMDZBAWCZ7WV4BQRE3UMI">
-            <div class="crypto-inner">
-              <div class="mt-6 text-center w-full">
-                <div class="text-2xl font-black text-red-400 mb-2">XLM</div>
-                <button class="copy-btn font-mono text-xs md:text-sm break-all bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition focus-ring w-full leading-tight">
-                  GBGPRL64Z4VQZQOQHPRM3WTO7KJNZ5YEYNMDZBAWCZ7WV4BQRE3UMI
-                </button>
-                <p class="text-green-400 text-xs mt-2" data-t="no_memo">No memo requerido</p>
-              </div>
-            </div>
-          </div>
+        const farmatodoLinks = [
+            "https://www.farmatodo.com.ve/producto/114793547-duloxetina-60mg-duloxuni-x30-capsulas-unipharma",
+            "https://www.farmatodo.com.ve/producto/111895899-clonazepam-clonzep-05-mg-x-30-tabletas",
+            "https://www.farmatodo.com.ve/producto/115333497-rosuvastatina-10-mg-la-sante-x-30-tabletas",
+            "https://www.farmatodo.com.ve/producto/111955713-quetiapina-letalcommander-100mg-30comprimidos-snc-pharma",
+            "https://www.farmatodo.com.ve/producto/115624569-candesartan-16-mg-candetip-fc-laboratorios-caja-x-30-comprimidos",
+            "https://www.farmatodo.com.ve/producto/115600639-metformina-clorhidrato-500-mg-plusandex-x-30-tabletas",
+            "https://www.farmatodo.com.ve/producto/111273477-bisoprolol-corentel-25mg-30comprimidos",
+            "https://www.farmatodo.com.ve/producto/111201775-glimepirida-4mg-30comprimidos-genven"
+        ];
 
-        </div>
-
-        <!-- CTA -->
-        <div class="mt-24">
-          <a href="https://revolut.me/dabate" target="_blank" rel="noopener noreferrer"
-             class="inline-block bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white text-3xl md:text-4xl font-black py-8 px-24 rounded-full shadow-2xl transform hover:scale-105 transition focus-ring">
-            <span data-t="donate_button">DONAR AHORA</span>
-          </a>
-        </div>
-
-        <p class="mt-16 text-xl md:text-2xl text-gray-300 leading-relaxed" data-t="thanks">
-          Gracias de corazón. Cada dólar o bolívar cuenta mucho.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="py-12 text-center text-gray-500 text-sm md:text-base border-t border-white/10" data-t="footer">
-    Actualizado noviembre 2025 – Tasa BCV: 243,1105 Bs. = 1 USD
-  </footer>
-
-  </body>
-  <!-- Traducciones completas y lógica perfecta -->
-  <script>
-    const translations = {
-      es: {
-        title: "Ayúdame con los medicamentos de mi abuela de 92 años | Venezuela 2025",
-        hero_title: "Necesito tu ayuda con los <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">medicamentos mensuales de mi abuela de 92 años</span>",
-        hero_subtitle: "En Venezuela estos 8 tratamientos cuestan cada mes:",
-        total_bs: "Bs. 15.471,00",
-        total_usd: "$63,66 USD",
-        exchange_rate: "Tasa BCV: Bs. 243,1105 = 1 USD",
-        table_title: "Detalle completo de medicamentos (receta mensual)",
-        th_medicine: "Medicamento",
-        th_presentation: "Presentación",
-        th_price_bs: "Precio en Bs.",
-        th_price_usd: "Precio en USD",
-        th_link: "Ver en Farmatodo",
-        donation_title: "¿Cómo puedes ayudarme?",
-        donation_text: "Cualquier aporte, aunque sea $5 o $10 dólares, me permite seguir comprando estos medicamentos sin interrupciones.",
-        donate_bs: "Bolívares",
-        fastest: "MÁS RÁPIDO",
-        donate_button: "DONAR AHORA",
-        thanks: "Gracias de corazón. Cada dólar o bolívar cuenta mucho.",
-        footer: "Actualizado noviembre 2025 – Tasa BCV: 243,1105 Bs. = 1 USD",
-        crypto_title: "Criptomonedas",
-        no_memo: "No memo requerido",
-        no_tag: "No tag requerido",
-        medicines: [
-          { name: "Duloxetina 60 mg", pres: "Duloxuni Unipharma – 30 cáps.", bs: "3.276,75", usd: "$13,48" },
-          { name: "Clonazepam 0,5 mg", pres: "Clonzep Valmor – 30 tabl.", bs: "1.710,00", usd: "$7,03" },
-          { name: "Rosuvastatina 10 mg", pres: "La Santé – 30 tabl.", bs: "2.197,25", usd: "$9,04" },
-          { name: "Quetiapina 100 mg", pres: "Letalop SNC – 30 comp.", bs: "2.337,50", usd: "$9,62" },
-          { name: "Candesartán 16 mg", pres: "Candetip FC – 30 comp.", bs: "1.683,00", usd: "$6,92" },
-          { name: "Metformina 500 mg", pres: "Plusandex – 30 tabl.", bs: "773,50", usd: "$3,18" },
-          { name: "Bisoprolol 2,5 mg", pres: "Corentel Megalabs – 30 comp.", bs: "1.113,00", usd: "$4,58" },
-          { name: "Glimepirida 4 mg", pres: "Genven – 30 comp.", bs: "2.380,00", usd: "$9,79" }
-        ]
-      },
-      en: {
-        title: "Help me with my 92-year-old grandmother’s monthly medicines | Venezuela 2025",
-        hero_title: "I need your help with my 92-year-old grandmother’s <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">monthly medicines</span>",
-        hero_subtitle: "In Venezuela these 8 treatments cost every month:",
-        total_bs: "Bs. 15.471,00",
-        total_usd: "$63.66 USD",
-        exchange_rate: "BCV rate: Bs. 243,1105 = 1 USD",
-        table_title: "Full list of medicines (monthly prescription)",
-        th_medicine: "Medicine",
-        th_presentation: "Presentation",
-        th_price_bs: "Price (Bs.)",
-        th_price_usd: "Price (USD)",
-        th_link: "View on Farmatodo",
-        donation_title: "How can you help me?",
-        donation_text: "Any donation, even $5 or $10, allows me to keep buying these medicines without interruption.",
-        donate_bs: "Bolívares",
-        fastest: "FASTEST",
-        donate_button: "DONATE NOW",
-        thanks: "Thank you from the bottom of my heart. Every dollar or bolívar makes a huge difference.",
-        footer: "Updated November 2025 – BCV rate: 243,1105 Bs. = 1 USD",
-        crypto_title: "Cryptocurrencies",
-        no_memo: "No memo required",
-        no_tag: "No tag required",
-        medicines: [
-          { name: "Duloxetine 60 mg", pres: "Duloxuni Unipharma – 30 caps.", bs: "3.276,75", usd: "$13.48" },
-          { name: "Clonazepam 0.5 mg", pres: "Clonzep Valmor – 30 tabs.", bs: "1.710,00", usd: "$7.03" },
-          { name: "Rosuvastatin 10 mg", pres: "La Santé – 30 tabs.", bs: "2.197,25", usd: "$9.04" },
-          { name: "Quetiapine 100 mg", pres: "Letalop SNC – 30 tabs.", bs: "2.337,50", usd: "$9.62" },
-          { name: "Candesartan 16 mg", pres: "Candetip FC – 30 tabs.", bs: "1.683,00", usd: "$6.92" },
-          { name: "Metformin 500 mg", pres: "Plusandex – 30 tabs.", bs: "773,50", usd: "$3.18" },
-          { name: "Bisoprolol 2.5 mg", pres: "Corentel Megalabs – 30 tabs.", bs: "1.113,00", usd: "$4.58" },
-          { name: "Glimepiride 4 mg", pres: "Genven – 30 tabs.", bs: "2.380,00", usd: "$9.79" }
-        ]
-      },
-      de: {
-        title: "Hilf mir bei den monatlichen Medikamenten meiner 92-jährigen Oma | Venezuela 2025",
-        hero_title: "Ich brauche deine Hilfe für die <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">monatlichen Medikamente meiner 92-jährigen Oma</span>",
-        hero_subtitle: "In Venezuela kosten diese 8 Behandlungen jeden Monat:",
-        total_bs: "Bs. 15.471,00",
-        total_usd: "$63,66 USD",
-        exchange_rate: "BCV-Kurs: Bs. 243,1105 = 1 USD",
-        table_title: "Komplettes Verzeichnis der Medikamente (monatliches Rezept)",
-        th_medicine: "Medikament",
-        th_presentation: "Darreichungsform",
-        th_price_bs: "Preis in Bs.",
-        th_price_usd: "Preis in USD",
-        th_link: "Bei Farmatodo ansehen",
-        donation_title: "Wie kannst du mir helfen?",
-        donation_text: "Jeder Beitrag, auch nur $5 oder $10, ermöglicht mir, diese Medikamente ohne Unterbrechung weiter zu kaufen.",
-        donate_bs: "Bolívares",
-        fastest: "SCHNELLSTE",
-        donate_button: "JETZT SPENDEN",
-        thanks: "Von Herzen vielen Dank. Jeder Dollar und jeder Bolívar zählt sehr.",
-        footer: "Aktualisiert November 2025 – BCV-Kurs: 243,1105 Bs. = 1 USD",
-        crypto_title: "Kryptowährungen",
-        no_memo: "Kein Memo erforderlich",
-        no_tag: "Kein Tag erforderlich",
-        medicines: [
-          { name: "Duloxetin 60 mg", pres: "Duloxuni Unipharma – 30 Kaps.", bs: "3.276,75", usd: "$13,48" },
-          { name: "Clonazepam 0,5 mg", pres: "Clonzep Valmor – 30 Tabl.", bs: "1.710,00", usd: "$7,03" },
-          { name: "Rosuvastatin 10 mg", pres: "La Santé – 30 Tabl.", bs: "2.197,25", usd: "$9,04" },
-          { name: "Quetiapin 100 mg", pres: "Letalop SNC – 30 Tabl.", bs: "2.337,50", usd: "$9,62" },
-          { name: "Candesartan 16 mg", pres: "Candetip FC – 30 Tabl.", bs: "1.683,00", usd: "$6,92" },
-          { name: "Metformin 500 mg", pres: "Plusandex – 30 Tabl.", bs: "773,50", usd: "$3,18" },
-          { name: "Bisoprolol 2,5 mg", pres: "Corentel Megalabs – 30 Tabl.", bs: "1.113,00", usd: "$4,58" },
-          { name: "Glimepirid 4 mg", pres: "Genven – 30 Tabl.", bs: "2.380,00", usd: "$9,79" }
-        ]
-      },
-      it: {
-        title: "Aiutami con i farmaci mensili di mia nonna di 92 anni | Venezuela 2025",
-        hero_title: "Ho bisogno del tuo aiuto per i <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400\">farmaci mensili di mia nonna di 92 anni</span>",
-        hero_subtitle: "In Venezuela questi 8 trattamenti costano ogni mese:",
-        total_bs: "Bs. 15.471,00",
-        total_usd: "$63,66 USD",
-        exchange_rate: "Tasso BCV: Bs. 243,1105 = 1 USD",
-        table_title: "Elenco completo dei farmaci (ricetta mensile)",
-        th_medicine: "Farmaco",
-        th_presentation: "Confezione",
-        th_price_bs: "Prezzo in Bs.",
-        th_price_usd: "Prezzo in USD",
-        th_link: "Vedi su Farmatodo",
-        donation_title: "Come puoi aiutarmi?",
-        donation_text: "Qualsiasi donazione, anche solo $5 o $10, mi permette di continuare a comprare questi farmaci senza interruzioni.",
-        donate_bs: "Bolívares",
-        fastest: "PIÙ VELOCE",
-        donate_button: "DONARE ORA",
-        thanks: "Grazie di cuore. Ogni dollaro o bolívar conta tantissimo.",
-        footer: "Aggiornato novembre 2025 – Tasso BCV: 243,1105 Bs. = 1 USD",
-        crypto_title: "Criptovalute",
-        no_memo: "Nessun memo richiesto",
-        no_tag: "Nessun tag richiesto",
-        medicines: [
-          { name: "Duloxetina 60 mg", pres: "Duloxuni Unipharma – 30 cps.", bs: "3.276,75", usd: "$13,48" },
-          { name: "Clonazepam 0,5 mg", pres: "Clonzep Valmor – 30 cpr.", bs: "1.710,00", usd: "$7,03" },
-          { name: "Rosuvastatina 10 mg", pres: "La Santé – 30 cpr.", bs: "2.197,25", usd: "$9,04" },
-          { name: "Quetiapina 100 mg", pres: "Letalop SNC – 30 cpr.", bs: "2.337,50", usd: "$9,62" },
-          { name: "Candesartán 16 mg", pres: "Candetip FC – 30 cpr.", bs: "1.683,00", usd: "$6,92" },
-          { name: "Metformina 500 mg", pres: "Plusandex – 30 cpr.", bs: "773,50", usd: "$3,18" },
-          { name: "Bisoprololo 2,5 mg", pres: "Corentel Megalabs – 30 cpr.", bs: "1.113,00", usd: "$4,58" },
-          { name: "Glimepiride 4 mg", pres: "Genven – 30 cpr.", bs: "2.380,00", usd: "$9,79" }
-        ]
-      }
-    };
-
-    const farmatodoLinks = [
-      "https://www.farmatodo.com.ve/producto/114793547-duloxetina-60mg-duloxuni-x30-capsulas-unipharma",
-      "https://www.farmatodo.com.ve/producto/111895899-clonazepam-clonzep-05-mg-x-30-tabletas",
-      "https://www.farmatodo.com.ve/producto/115333497-rosuvastatina-10-mg-la-sante-x-30-tabletas",
-      "https://www.farmatodo.com.ve/producto/111955713-quetiapina-letalcommander-100mg-30comprimidos-snc-pharma",
-      "https://www.farmatodo.com.ve/producto/115624569-candesartan-16-mg-candetip-fc-laboratorios-caja-x-30-comprimidos",
-      "https://www.farmatodo.com.ve/producto/115600639-metformina-clorhidrato-500-mg-plusandex-x-30-tabletas",
-      "https://www.farmatodo.com.ve/producto/111273477-bisoprolol-corentel-25mg-30comprimidos",
-      "https://www.farmatodo.com.ve/producto/111201775-glimepirida-4mg-30comprimidos-genven"
-    ];
-
-    function applyLanguage(lang = "es") {
-      const t = translations[lang] || translations.es;
-      document.documentElement.lang = lang;
-      document.title = t.title;
-      localStorage.setItem("lang", lang);
-
-      document.querySelectorAll("[data-t]").forEach(el => {
-        const key = el.dataset.t;
-        if (t[key] !== undefined) el.innerHTML = t[key];
-      });
-
-      const tbody = document.getElementById("medicines-table");
-      tbody.innerHTML = t.medicines.map((med, i) => `
-        <tr class="hover:bg-white/5 transition">
-          <td class="px-6 py-5 font-medium text-lg">${med.name}</td>
-          <td class="px-6 py-5 text-right text-gray-300">${med.pres}</td>
-          <td class="px-6 py-5 text-right font-bold text-white">${med.bs}</td>
-          <td class="px-6 py-5 text-right font-bold text-green-400">${med.usd}</td>
-          <td class="px-6 py-5 text-center">
-            <a href="${farmatodoLinks[i]}" target="_blank" rel="noopener noreferrer" class="inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg focus-ring">
-              ${t.th_link} →
-            </a>
-          </td>
-        </tr>
-      `).join('');
-
-      const totalTexts = { es: "TOTAL MENSUAL", en: "MONTHLY TOTAL", de: "MONATLICHE SUMME", it: "TOTALE MENSILE" };
-      tbody.innerHTML += `
-        <tr class="bg-gradient-to-r from-purple-900 to-cyan-900 font-bold text-xl">
-          <td colspan="2" class="px-6 py-7 text-right text-white">${totalTexts[lang] || totalTexts.es}</td>
-          <td class="px-6 py-7 text-right">Bs. 15.471,00</td>
-          <td class="px-6 py-7 text-right text-green-400 text-3xl">$63,66 USD</td>
-          <td class="px-6 py-7 text-center">—</td>
-        </tr>`;
-
-      document.querySelectorAll(".lang-btn").forEach(b => {
-        const active = b.dataset.lang === lang;
-        b.classList.toggle("bg-cyan-600", active);
-        b.classList.toggle("text-black", active);
-        b.classList.toggle("bg-transparent", !active);
-        b.classList.toggle("text-gray-400", !active);
-      });
-    }
-
-
-
-    document.addEventListener("DOMContentLoaded", () => {
-      applyLanguage(localStorage.getItem("lang") || "es");
-
-      document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
-      });
-
-      document.addEventListener("click", async e => {
-        if (!e.target.classList.contains("copy-btn")) return;
-        const text = e.target.textContent.replace(/\s/g, "");
-        try {
-          await navigator.clipboard.writeText(text);
-          const orig = e.target.innerHTML;
-          e.target.innerHTML = '<span class="text-green-400 font-bold">¡Copiado!</span>';
-          e.target.disabled = true;
-          setTimeout(() => { e.target.innerHTML = orig; e.target.disabled = false; }, 2000);
-        } catch (err) {
-          console.warn("Copiar falló:", err);
+        function getMonthlyTotalText(lang) {
+            if (lang === "en") {
+                return "MONTHLY TOTAL";
+            } else if (lang === "de") {
+                return "MONATLICHE SUMME";
+            } else if (lang === "it") {
+                return "TOTALE MENSILE";
+            } else {
+                return "TOTAL MENSUAL";
+            }
         }
-      });
-    });
-  </script>
-</html>
+
+        function applyLanguage(lang) {
+            const t = translations[lang];
+            document.documentElement.lang = lang;
+            document.title = t.title;
+            localStorage.setItem("lang", lang);
+
+            document.querySelectorAll("[data-t]").forEach(el => {
+                const key = el.dataset.t;
+                if (t[key] !== undefined) el.innerHTML = t[key];
+            });
+
+            const tbody = document.getElementById("medicines-table");
+            tbody.innerHTML = "";
+
+            t.medicines.forEach((med, i) => {
+                const tr = document.createElement("tr");
+                tr.className = "hover:bg-white/5 transition";
+                tr.innerHTML = `
+                    <td class="px-6 py-5 font-medium text-lg">${med.name}</td>
+                    <td class="px-6 py-5 text-right text-gray-300">${med.pres}</td>
+                    <td class="px-6 py-5 text-right font-bold text-white">${med.bs}</td>
+                    <td class="px-6 py-5 text-right font-bold text-green-400">${med.usd}</td>
+                    <td class="px-6 py-5 text-center">
+                        <a href="${farmatodoLinks[i]}" target="_blank" rel="noopener"
+                           class="inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg">
+                           ${t.th_link} →
+                        </a>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            const totalRow = document.createElement("tr");
+            totalRow.className = "bg-gradient-to-r from-purple-900 to-cyan-900 font-bold text-xl";
+            totalRow.innerHTML = `
+                <td colspan="2" class="px-6 py-7 text-right text-white">
+                    ${getMonthlyTotalText(lang)}
+                </td>
+                <td class="px-6 py-7 text-right">${t.total_bs}</td>
+                <td class="px-6 py-7 text-right text-green-400 text-3xl">${t.total_usd}</td>
+                <td class="px-6 py-7 text-center">—</td>
+            `;
+            tbody.appendChild(totalRow);
+
+            document.querySelectorAll(".lang-btn").forEach(btn => {
+                btn.classList.toggle("bg-cyan-600 text-black", btn.dataset.lang === lang);
+                btn.classList.toggle("bg-transparent text-gray-400", btn.dataset.lang !== lang);
+            });
+        }
+
+        document.querySelectorAll(".lang-btn").forEach(btn => {
+            btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+        });
+
+        applyLanguage(localStorage.getItem("lang") || "es");
+    </script>
+</body>
 </html>
